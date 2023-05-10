@@ -1,6 +1,6 @@
 #Greenfoot project file
 class.Dasher.image=steel-ball.png
-class.Ground.image=ambulance.png
+class.Ground.image=11635_1_64x64.jpg
 class.MyWorld.image=618cff3e20616-large.jpg
 dependency1.from=MyWorld
 dependency1.to=Dasher

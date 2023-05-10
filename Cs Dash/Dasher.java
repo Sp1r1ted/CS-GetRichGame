@@ -3,6 +3,7 @@ import greenfoot.*;
 public class Dasher extends Actor {
     public static final int GRAVITY = 1;
     private int velocity;
+    private int jumpHeight = 10;
     
     public void act() {
         keys();
@@ -28,8 +29,7 @@ public class Dasher extends Actor {
     {
         if (Greenfoot.isKeyDown("space") && onGround()) 
         {
-            velocity = -15;
-            setLocation(getX(), getY() + velocity);
+            setLocation(getX(), getY() + jumpHeight);
         }
     }
     
