@@ -16,11 +16,17 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1);
+        //Player
         Dasher player1 = new Dasher();
-        addObject(player1, 300, 200);
-        Floor ground = new Floor();
-        addObject(ground, 0, 1);
-        //GreenfootImage player2 = new GreenfootImage("player.jpg");
+        addObject(player1, getWidth() / 2, getHeight() / 2);
+        //
+        
+        //Ground
+        Ground ground = new Ground();
+        int groundHeight = ground.getImage().getHeight();
+        int worldHeight = getHeight();
+        int groundY = worldHeight - groundHeight / 2;
+        addObject(ground, getWidth() / 2, groundY);
     }
 }
