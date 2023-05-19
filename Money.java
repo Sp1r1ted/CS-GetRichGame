@@ -21,7 +21,7 @@ public class Money extends Actor
         remove();
     }
 
-    public void remove()
+    public void remove() // removes object after it intersects Player
     {
         if (!getObjectsAtOffset(1, 1, Player.class).isEmpty())
         {
@@ -30,7 +30,7 @@ public class Money extends Actor
         }
     }
 
-    public void fall()
+    public void fall() // gravity for money
     {
         velocity += GRAVITY;
         setLocation(getX(), getY() + velocity);
