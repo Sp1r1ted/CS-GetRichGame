@@ -4,7 +4,8 @@ public class MyWorld extends World
 {
     private int timer = 0;
     private int spawnInterval = 60; // 60  = 1 second
-
+    private int points;
+    
     public MyWorld()
     {    
         super(600, 400, 1); 
@@ -18,8 +19,8 @@ public class MyWorld extends World
     {
         spawnMoney();
     }
-
-    private void spawnMoney()
+    
+    public void spawnMoney()
     {
         if (timer >= spawnInterval)
         {
@@ -30,6 +31,12 @@ public class MyWorld extends World
         else
         {
             timer++;
+        }
+        
+        if (timer == 30)
+        {
+            TwoDollar twoDollar = new TwoDollar(this);
+            addObject(twoDollar, Greenfoot.getRandomNumber(getWidth()), 0);
         }
     }
 
