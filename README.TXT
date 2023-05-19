@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE: Cs-GetRichGame
-PURPOSE OF PROJECT: AP CSA FINAL
-VERSION or DATE: 5/19/2023
-HOW TO START THIS PROJECT: Download it and open the folder using greenfoot.
-AUTHORS: Jorge Camacho
-USER INSTRUCTIONS: N/A
+PROJECT TITLE:
+PURPOSE OF PROJECT:
+VERSION or DATE:
+HOW TO START THIS PROJECT:
+AUTHORS:
+USER INSTRUCTIONS:

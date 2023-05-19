@@ -6,7 +6,7 @@ public class Money extends Actor
     private int velocity;
     private int points;
     private MyWorld world;
-
+    
     public Money(MyWorld world)
     {
         this.world = world;
