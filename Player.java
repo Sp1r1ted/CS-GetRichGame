@@ -19,14 +19,14 @@ public class Player extends Actor
     
     public void keys() 
     {
-        if (Greenfoot.isKeyDown("d")) 
+        if (Greenfoot.isKeyDown("d" ) || Greenfoot.isKeyDown("right"))
         {
-            move(5);
+            move(15);
         }
         
-        if (Greenfoot.isKeyDown("a")) 
+        if (Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left"))
         {
-            move(-5);
+            move(-15);
         }
     }
 }
