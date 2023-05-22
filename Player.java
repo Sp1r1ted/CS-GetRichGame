@@ -17,7 +17,7 @@ public class Player extends Actor
         keys();
     }
     
-    public void keys() 
+    public void keys() // Movement
     {
         if (Greenfoot.isKeyDown("d" ) || Greenfoot.isKeyDown("right"))
         {
@@ -29,4 +29,14 @@ public class Player extends Actor
             move(-15);
         }
     }
+    
+    // public int getLives()
+    // {
+        // return lives;
+    // } 
+    
+    // public void setLives(int heart)
+    // {
+        // lives -= heart;
+    // }
 }

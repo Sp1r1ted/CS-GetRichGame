@@ -8,11 +8,11 @@ public class MyWorld extends World
     
     public MyWorld()
     {    
-        super(600, 400, 1); 
+        super(612, 408, 1); 
         Player richKid = new Player();
         addObject(richKid, 200, 330);
         prepare();
-        Greenfoot.setSpeed(45);
+        Greenfoot.setSpeed(50);
     }
 
     public void act()

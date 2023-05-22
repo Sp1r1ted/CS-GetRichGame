@@ -7,7 +7,7 @@ public class Money extends Actor
     private int points;
     private MyWorld world;
     
-    public Money(MyWorld world)
+    public Money(MyWorld world) // Basic Setup for money in world
     {
         this.world = world;
         GreenfootImage image = getImage();
@@ -15,28 +15,47 @@ public class Money extends Actor
         setImage(image);
     }
 
-    public void act()
+    public void act() // Where the methods are used
     {
         fall();
         remove();
     }
 
-    public void remove() // removes object after it intersects Player
+    public void remove()
     {
         if (!getObjectsAtOffset(1, 1, Player.class).isEmpty())
         {
-            world.increaseScore(1); // Increase the score by 1
+            if (this instanceof TwoDollar)
+            {
+                world.increaseScore(2); // Increase the score by 2 for TwoDollar
+            }
+            else 
+            {
+                world.increaseScore(1); // Increase the score by 1 for other Money objects
+            }
+            
             world.removeObject(this);
         }
     }
 
+
+    public void addPoints(int points)
+    {
+        world.increaseScore(points);
+    }
+    
+    
     public void fall() // gravity for money
     {
-        velocity += GRAVITY;
-        setLocation(getX(), getY() + velocity);
+        // velocity += GRAVITY;
+        // setLocation(getX(), getY() + velocity);
+        setLocation(getX(), getY() + 4);
         if (!getObjectsAtOffset(1, 1, Player.class).isEmpty())
         {
             velocity = 0;
         }
     }
+    
+    
+    
 }
