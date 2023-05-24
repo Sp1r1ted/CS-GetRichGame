@@ -17,8 +17,9 @@ public class Money extends Actor
 
     public void act() // Where the methods are used
     {
-        fall();
-        remove();
+        fall(); // Money fall system
+        remove(); // Remove Dollar when it touches player
+        
     }
 
     public void remove()
@@ -38,18 +39,17 @@ public class Money extends Actor
         }
     }
 
-
-    public void addPoints(int points)
-    {
-        world.increaseScore(points);
-    }
+    // public void addPoints(int points)
+    // {
+        // world.increaseScore(points);
+    // }
     
     
     public void fall() // gravity for money
     {
         // velocity += GRAVITY;
         // setLocation(getX(), getY() + velocity);
-        setLocation(getX(), getY() + 4);
+        setLocation(getX(), getY() + 2);
         if (!getObjectsAtOffset(1, 1, Player.class).isEmpty())
         {
             velocity = 0;
