@@ -9,7 +9,7 @@ public class MyWorld extends World
     
     public MyWorld()
     {    
-        super(612, 408, 1); 
+        super(612, 408, 1); //612, 408
         Player richKid = new Player();
         addObject(richKid, 200, 330);
         prepare();
@@ -22,11 +22,7 @@ public class MyWorld extends World
     public void act()
     {
         spawnMoney();
-        
-        while (getScore() <= 0)
-        {
-            
-        }
+        checkGameOver();
     }
     
     public void spawnMoney()
@@ -59,6 +55,14 @@ public class MyWorld extends World
     {
         Counter counter = (Counter) getObjects(Counter.class).get(0);
         counter.add(increment);
+    }
+    
+    private void checkGameOver() 
+    {
+        if (getScore() <= -1) 
+        {
+            Greenfoot.setWorld(new GameOver());
+        }
     }
     
     private void createGround()
