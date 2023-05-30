@@ -22,28 +22,25 @@ public class Money extends Actor
         
     }
 
-    public void remove()
+    public void remove() 
     {
-        if (!getObjectsAtOffset(1, 1, Player.class).isEmpty())
-        {
-            if (this instanceof TwoDollar)
+        if (!getObjectsAtOffset(1, 1, Player.class).isEmpty()) {
+            if (this instanceof TwoDollar) 
             {
                 world.increaseScore(2); // Increase the score by 2 for TwoDollar
-            }
+            } 
+            else if (this instanceof BadDollar) 
+            {
+                world.increaseScore(-10); // Decrease the score by 10 for BadDollar
+            } 
             else 
             {
                 world.increaseScore(1); // Increase the score by 1 for other Money objects
             }
-            
+    
             world.removeObject(this);
         }
     }
-
-    // public void addPoints(int points)
-    // {
-        // world.increaseScore(points);
-    // }
-    
     
     public void fall() // gravity for money
     {

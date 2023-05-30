@@ -1,25 +1,30 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class GameOver here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class GameOver extends World
 {
-
+    private int timer = 0;
+    private static final int LOOP_DELAY = 100; // What it's supposed to count up to.
+    
     /**
      * Constructor for objects of class GameOver.
-     * 
      */
     public GameOver()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         
         GreenfootImage bg = getBackground();
-        bg.scale(bg.getWidth() - 300, bg.getHeight() - 300);
         setBackground(bg);
+    }
+    
+    public void act()
+    {
+        if (timer == LOOP_DELAY)
+        {
+            Greenfoot.setWorld(new LoadScreen());
+        }
+        else
+        {
+            timer++;
+        }
     }
 }

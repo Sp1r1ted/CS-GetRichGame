@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     private int timer = 0;
-    private int spawnInterval = 60; // 60  = 1 second
+    private int spawnInterval = 80; // Time
     private int points;
     private static final int GROUND_HEIGHT = 5;
     
@@ -42,6 +42,12 @@ public class MyWorld extends World
         {
             TwoDollar twoDollar = new TwoDollar(this);
             addObject(twoDollar, Greenfoot.getRandomNumber(getWidth()), 0);
+        }
+        
+        if (timer == 70)
+        {
+            BadDollar badDollar = new BadDollar(this);
+            addObject(badDollar, Greenfoot.getRandomNumber(getWidth()), 0);
         }
     }
     
