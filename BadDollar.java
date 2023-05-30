@@ -1,11 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Meant to be the BadDollar Class to remove points.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
 public class BadDollar extends Money
 {
     /**
@@ -13,14 +6,14 @@ public class BadDollar extends Money
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public BadDollar(MyWorld world)
+    public BadDollar(MyWorld world) // Basic BadDollar Setup
     {
         super(world);
         GreenfootImage image = getImage();
         setImage(image);
     }
     
-    public void act()
+    public void act() // Uses same act as in Money class.
     {
         super.act();
     }

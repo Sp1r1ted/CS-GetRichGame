@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameOver extends World
 {
     private int timer = 0;
-    private static final int LOOP_DELAY = 100; // What it's supposed to count up to.
+    private static final int LOOP_DELAY = 350; // What it's supposed to count up to.
     
     /**
      * Constructor for objects of class GameOver.

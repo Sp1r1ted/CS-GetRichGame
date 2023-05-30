@@ -1,22 +1,22 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;  
 public class MyWorld extends World
 {
-    private int timer = 0;
-    private int spawnInterval = 80; // Time
-    private int points;
-    private static final int GROUND_HEIGHT = 5;
-    
-    public MyWorld()
+    private int timer = 8; // Everytime money is spawned.
+    private int spawnInterval = 80; // Max Time
+    private int points; // Points that appear on scoreboard
+    private static final int GROUND_HEIGHT = 5; // Final ground height for ground class.
+    GreenfootSound bg = new GreenfootSound("backgroundMusic.wav"); // Background Music
+    public MyWorld() // basic setup for MyWorld()
     {    
-        super(612, 408, 1); //612, 408
-        Player richKid = new Player();
-        addObject(richKid, 200, 330);
-        prepare();
-        Greenfoot.setSpeed(50);
-        createGround();
+        super(612, 408, 1); // Constructs world
+        Player richKid = new Player(); // Spawns in Player Object
+        addObject(richKid, 200, 330); // Spawns in Player
+        prepare(); // Calls prepare which adds the counter class.
+        Greenfoot.setSpeed(50); // Speed game is meant to be played at.
+        createGround(); // Creates ground object.
+        bgMusic();
         
-        addObject(new Ground(), getWidth() / 2, getHeight() - 5); // Adjust the y-coordinate as needed
+        addObject(new Ground(), getWidth() / 2, getHeight() - 5); // Location of ground
     }
 
     public void act()
@@ -25,26 +25,26 @@ public class MyWorld extends World
         checkGameOver();
     }
     
-    public void spawnMoney()
+    public void spawnMoney() // Spawns Money Object
     {
-        if (timer >= spawnInterval)
+        if (timer >= spawnInterval) // Money 
         {
             Money money = new Money(this);
             addObject(money, Greenfoot.getRandomNumber(getWidth()), 0);
             timer = 0;
         }
-        else
+        else // Adds to the timer
         {
             timer++;
         }
         
-        if (timer == 30)
+        if (timer == 30) // Spawns TwoDollar Object
         {
             TwoDollar twoDollar = new TwoDollar(this);
             addObject(twoDollar, Greenfoot.getRandomNumber(getWidth()), 0);
         }
         
-        if (timer == 70)
+        if (timer == 70) // Spawns badDollar Object
         {
             BadDollar badDollar = new BadDollar(this);
             addObject(badDollar, Greenfoot.getRandomNumber(getWidth()), 0);
@@ -68,6 +68,7 @@ public class MyWorld extends World
         if (getScore() <= -1) 
         {
             Greenfoot.setWorld(new GameOver());
+            bgStop();
         }
     }
     
@@ -83,5 +84,15 @@ public class MyWorld extends World
     {
         Counter counter = new Counter();
         addObject(counter, 530, 21);
+    }
+    
+    private void bgMusic()
+    {
+        bg.setVolume(30);
+        bg.play();
+    }
+    private void bgStop()
+    {
+        bg.stop();
     }
 }

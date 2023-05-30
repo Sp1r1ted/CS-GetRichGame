@@ -1,8 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;
 public class TwoDollar extends Money
 {
-    public TwoDollar(MyWorld world)
+    public TwoDollar(MyWorld world) // Basic Setup
     {
         super(world);
         GreenfootImage image = getImage();
@@ -10,7 +9,7 @@ public class TwoDollar extends Money
     }
 
     
-    public void act()
+    public void act() // Uses act in Money Class.
     {
         super.act();
     }

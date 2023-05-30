@@ -1,11 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*; 
 public class Money extends Actor
 {
     public static final int GRAVITY = 1;
     private int velocity;
     private int points;
-    private MyWorld world;
+    private MyWorld world; // Connects money to world
     
     public Money(MyWorld world) // Basic Setup for money in world
     {
@@ -22,7 +21,7 @@ public class Money extends Actor
         
     }
 
-    public void remove() 
+    public void remove() // Removes money intersecting player and adds score
     {
         if (!getObjectsAtOffset(1, 1, Player.class).isEmpty()) {
             if (this instanceof TwoDollar) 
@@ -31,15 +30,23 @@ public class Money extends Actor
             } 
             else if (this instanceof BadDollar) 
             {
-                world.increaseScore(-10); // Decrease the score by 10 for BadDollar
+                world.increaseScore(-5); // Decrease the score by 10 for BadDollar
             } 
             else 
             {
                 world.increaseScore(1); // Increase the score by 1 for other Money objects
             }
-    
+            
             world.removeObject(this);
+            playKashingSound();
         }
+    }
+    
+    private void playKashingSound() 
+    {
+        GreenfootSound sound = new GreenfootSound("kashing.wav");
+        sound.setVolume(20);
+        sound.play();
     }
     
     public void fall() // gravity for money
@@ -52,7 +59,4 @@ public class Money extends Actor
             velocity = 0;
         }
     }
-    
-    
-    
 }
